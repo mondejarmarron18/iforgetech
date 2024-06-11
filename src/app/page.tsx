@@ -2,31 +2,14 @@
 
 import LanguageDropDown from "@/components/LanguageDropDown";
 import Logo from "@/components/icons/Logo";
-import { FaGithub, FaHammer, FaLinkedin } from "react-icons/fa";
-import { Bounce, ToastContainer, toast } from "react-toastify";
+import { FaHammer } from "react-icons/fa";
 import Typewriter from "typewriter-effect";
-import "../libs/i18n";
 import { useTranslation } from "react-i18next";
+import Footer from "@/components/Footer";
+import "@/libs/i18n";
 
 export default function Home() {
   const { t } = useTranslation();
-
-  const handleOnCopy = () => {
-    navigator.clipboard.writeText("dev@iforgetech.com");
-
-    toast("Email copied", {
-      position: "bottom-right",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      draggable: true,
-      theme: "dark",
-      style: {
-        background: "rgba(0, 0, 0, 0.3)",
-      },
-      transition: Bounce,
-    });
-  };
 
   return (
     <main className="h-full flex flex-col items-center justify-between p-3 md:p-5">
@@ -53,30 +36,7 @@ export default function Home() {
           />
         </span>
       </div>
-      <div className="flex flex-col gap-2 text-gray-400">
-        <div className="flex gap-3 justify-center">
-          <a href="https://github.com/mondejarmarron18" title="Go to GitHub">
-            <FaGithub size={26} className="hover:text-white" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/marvin-ronquillo-06566a202"
-            title="Go to LinkedIn"
-          >
-            <FaLinkedin size={26} className="hover:text-white" />
-          </a>
-        </div>
-        <p className="text-center">
-          {t("contactMe")}{" "}
-          <span
-            className="text-center font-medium cursor-copy hover:text-white"
-            onClick={handleOnCopy}
-            title="Copy email"
-          >
-            dev@iforgetech.com
-          </span>
-        </p>
-        <ToastContainer />
-      </div>
+      <Footer />
     </main>
   );
 }

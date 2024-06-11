@@ -1,3 +1,5 @@
+"use client";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,14 +13,14 @@ import { MdArrowDropDown } from "react-icons/md";
 
 const languages = [
   {
-    name: "Japanese",
-    code: "ja",
-    flag: "JP",
-  },
-  {
     name: "English",
     code: "en-US",
     flag: "US",
+  },
+  {
+    name: "Japanese",
+    code: "ja",
+    flag: "JP",
   },
   {
     name: "Filipino",
