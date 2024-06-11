@@ -37,7 +37,7 @@ export default function Home() {
         <LanguageDropDown />
       </div>
       <div className="flex relative flex-col size-[200px] animate-pulse items-center justify-center gap-4">
-        <div className="h-full w-full absolute border-gray-600 drop-shadow-lg border-t-2 rounded-full animate-spin duration-[3000ms]"></div>
+        <div className="h-full w-full absolute border-gray-800 drop-shadow-xl border-t-2 rounded-full animate-spin"></div>
         <span className="scale-x-[-1]">
           <FaHammer className="duration-1000 origin-left animate-hammering size-[40px]" />
         </span>

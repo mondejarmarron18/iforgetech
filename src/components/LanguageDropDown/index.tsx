@@ -2,10 +2,9 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { useTranslation } from "react-i18next";
 import { MdArrowDropDown } from "react-icons/md";
@@ -29,22 +28,20 @@ const languages = [
 ];
 
 const LanguageDropDown = () => {
-  const [language, setLanguage] = useState<
-    (typeof languages)[number] | undefined
-  >(undefined);
+  const [language, setLanguage] = useState<(typeof languages)[number]>();
   const { i18n } = useTranslation();
 
-  useEffect(() => {
-    const l = languages.find(
-      (l) => l.code === localStorage.getItem("i18nextLng")
-    );
+  useLayoutEffect(() => {
+    const lang = languages.find((lang) => lang.code === i18n.language);
 
-    setLanguage(l);
+    setLanguage(lang);
   }, [i18n.language]);
 
   const handleOnChangeLanguage = (index: number) => {
     i18n.changeLanguage(languages[index].code);
   };
+
+  if (!language) return null;
 
   return (
     <DropdownMenu>
